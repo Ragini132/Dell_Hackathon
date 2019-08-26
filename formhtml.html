@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <title>Feedback Form</title>
+    </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Feedback Form</h1>
+      </div>
+    
+    </div>
+    <div class="container row">
+      <div class="col-xs-12">
+        <div class="form">
+          <form action="" class="form">
+            <div class="control-group">
+              <label for="first_name">How would you rate the overall experience?(between 1 to 10)</label>
+              <input type="text" name="rating">
+            </div>
+            <div>
+              <button class="submit btn btn-primary">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/3.0.2/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script>
+    $.fn.getFormData = function() {
+      var fields = this.find('[name]');
+      var result = {};
+      $.each(fields, function (i, el) {
+        result[el.name] = el.value;
+      });
+      return result;
+    };
+      var config = {
+           apiKey: "AIzaSyAGxNlhWa5Nt6k7RGCEPPZTo5wzs_qQE-c",
+        authDomain: "dell-f13fd.firebaseapp.com",
+        databaseURL: "https://dell-f13fd.firebaseio.com",
+        storageBucket: "dell-f13fd.appspot.com",
+      };
+      var fb = firebase.initializeApp(config);
+      var user_id;
+      $('.submit').on('click', function (e) {
+        e.preventDefault();
+        var updates = {};
+        user_id = user_id ? user_id : fb.database().ref().child('user-data').push().key;
+        updates[user_id] = $('form').getFormData();
+        fb.database().ref().child('user-data').update(updates);
+      });
+    </script>
+  </body>
+</html>

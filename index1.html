@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title> Retrieve Data</title>
+    </head>
+<style>
+
+html,body{
+
+text-align: center;
+background-image: url('bg1.png');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+</style>
+    <body>
+        
+            <h2>
+                Enter name of user to get information
+            </h2>
+        
+        <input type="text"id="user"required="required"><br>
+        <button type="button" onclick="getdata();">Get</button>
+        <p>Recommendation1: <strong id="n0"></strong></p>
+        <p>Recommendation2: <strong id="n1"></strong></p>
+        <p>Recommendation3: <strong id="n2"></strong></p>
+        <p>Recommendation4: <strong id="n3"></strong></p>
+        
+        <p>Recommendation5 :<strong id="n4"></strong></p>
+        <pre id="0"></pre>
+        <pre id="1"></pre>
+
+        <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
+       
+        <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+        <script>
+        var firebaseConfig = {
+    apiKey: "AIzaSyAGxNlhWa5Nt6k7RGCEPPZTo5wzs_qQE-c",
+    authDomain: "dell-f13fd.firebaseapp.com",
+    databaseURL: "https://dell-f13fd.firebaseio.com",
+    projectId: "dell-f13fd",
+    storageBucket: "dell-f13fd.appspot.com",
+    messagingSenderId: "617068971683",
+    appId: "1:617068971683:web:6ac4a32ad93b4592"
+  };
+  firebase.initializeApp(firebaseConfig);
+        </script>
+        <script type="text/javascript" src="app.js"></script>
+    </body>
+
+
+</html>
